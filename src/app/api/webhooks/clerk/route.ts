@@ -13,9 +13,9 @@ const stripe = new Stripe(env.STRIPE_SECRET_KEY)
 
 export async function POST(req: Request) {
   const headerPayload = headers()
-  const svixId = (await headerPayload).get("svix-id")
-  const svixTimestamp = (await headerPayload).get("svix-timestamp")
-  const svixSignature = (await headerPayload).get("svix-signature")
+  const svixId = headerPayload.get("svix-id")
+  const svixTimestamp = headerPayload.get("svix-timestamp")
+  const svixSignature = headerPayload.get("svix-signature")
 
   if (!svixId || !svixTimestamp || !svixSignature) {
     return new Response("Error occurred -- no svix headers", {
