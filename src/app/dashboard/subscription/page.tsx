@@ -81,7 +81,7 @@ export default async function SubscriptionPage() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={createCustomerPortalSession}>
+              <form action={createCustomerPortalSession}>
                 <Button
                   variant="accent"
                   className="text-lg rounded-lg"
@@ -128,7 +128,7 @@ function PricingCard({
       </CardHeader>
       <CardContent>
         <form
-          onSubmit={
+          action={
             name === "Free"
               ? createCancelSession
               : createCheckoutSession.bind(null, name)
